@@ -62,11 +62,11 @@ function draw() {
   if(boulderGroup.isTouching(ghost)) {
    background("black");
     boulderGroup.visible = false;
-   score = 0;
    ghost.visible = false;
    road.visible = false;
     gameOver = createSprite(300,200,20,20);
     gameOver.addImage(gameOverImg);
+    score = 0;
   }
     
   drawSprites();
