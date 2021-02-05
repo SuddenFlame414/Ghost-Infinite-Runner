@@ -3,6 +3,7 @@ var boulder, boulderImg, boulderGroup;
 var road, roadImg, invisibleRoad;
 var gameOver, gameOverImg;
 var score = 0;
+var gameState = PLAY;
 
 function preload() {
   roadImg = loadImage("road.jpg");
@@ -34,6 +35,7 @@ function setup() {
 function draw() {
   background("white");
   
+  if(gameState === PLAY) {
   stroke("black");
   fill("black");
   textSize(25);
@@ -60,7 +62,12 @@ function draw() {
   
   
   if(boulderGroup.isTouching(ghost)) {
-   background("black");
+   gameState = END;
+  }
+    drawSprites();
+  }
+  if(gameState === END) {
+  background("black");
     boulderGroup.visible = false;
    ghost.visible = false;
    road.visible = false;
@@ -68,8 +75,6 @@ function draw() {
     gameOver.addImage(gameOverImg);
     score = 0;
   }
-    
-  drawSprites();
 }
 
 function spawnBoulder() {
