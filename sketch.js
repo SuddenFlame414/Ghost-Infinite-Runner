@@ -3,6 +3,8 @@ var boulder, boulderImg, boulderGroup;
 var road, roadImg, invisibleRoad;
 var gameOver, gameOverImg;
 var score = 0;
+var PLAY = 1;
+var END = 0;
 var gameState = PLAY;
 
 function preload() {
